@@ -31,12 +31,12 @@ def tiktokdl(m):
             send = bot.reply_to(m, 'Sik Loading...')
             url = requests.get(f'https://api.douyin.wtf/api?url={m.text}').json()
             video = url.get('nwm_video_url', None)
-            audio = url.get('video_music_url', None)
-            videotitle = url['video_title']
-            videomusictitle = url['video_music_title']
-            autor = url['video_author_nickname']
-            time = url['analyze_time']
-            bot.send_video(m.chat.id, video, caption=f'*INFORMASI:*\n\n*- Video title:* {videotitle}\n*- Author Nickname:* {autor}', reply_to_message_id=m.message_id, parse_mode='Markdown')
+#            audio = url.get('video_music_url', None)
+#            videotitle = url['video_title']
+#            videomusictitle = url['video_music_title']
+#            autor = url['video_author_nickname']
+#            time = url['analyze_time']
+            bot.send_video(m.chat.id, video, caption=f'{m.text}', reply_to_message_id=m.message_id, parse_mode='Markdown')
 #            bot.send_audio(m.chat.id, audio, reply_to_message_id=m.message_id)
             bot.delete_message(m.chat.id, send.message_id)
             
